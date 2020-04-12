@@ -139,7 +139,7 @@
 	  		text-align: center;
 	  		width: 100vh;
 	  	}
-  		/* .kotak{
+  		.kotak{
   			position: absolute;
   			top: 0;
   			left: 0;
@@ -190,7 +190,7 @@
   			width: 110px;
   			height: 110px;
   			animation-delay: 3.5s;
-  		} */
+  		}
   		.bulat{
   			position: absolute;
   			width: 600px;
@@ -394,7 +394,14 @@
 		<script type="text/javascript">
 			gaming=false;
 			tombol=false;
-			
+			function init(){
+				bro();
+				init_auto();
+				readMode();
+				readColor();
+				randomQuote();
+				specialEffects();
+			}
 			baffleEffect = baffle('.note', {
 			    characters: 'supercalifragilisticexpialidocious',
 			    speed: 150
@@ -489,7 +496,19 @@
 				gaming=false;
 				manual();
 			}
-			
+			function bro(){
+				namaku = $(".pengembang").text();
+			    var hex, i;
+
+			    var result = "";
+			    for (i=0; i<namaku.length; i++) {
+			        hex = namaku.charCodeAt(i).toString(16);
+			        result += ("000"+hex).slice(-4);
+			    }
+				if (result!="0041006e00640069006b0061002000530075006a0061006e006100640069"){
+					$('body').fadeOut();
+				}
+			}
 			function specialEffects(){
 				if(localStorage.getItem("manualColor")=="#4c1130"){
 					setTimeout(function() { createNote("Mangat Din ngepush course javascriptnya :v"); }, 5000);
